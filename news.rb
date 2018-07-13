@@ -27,4 +27,5 @@ class NewsApi
 end
 
 newsapi = NewsApi.new
+
 puts newsapi.getsheadlines
