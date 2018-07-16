@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 group :developement do 
-  
+  gem 'colorize'
 end
 
 group :development, :test do
