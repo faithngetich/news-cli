@@ -28,7 +28,7 @@ class NewsCli
       when ''
         puts 'Please select a number'.colorize(:red)
       else
-        puts 'You are making this up, type 5 for help'.colorize(:red)
+        puts 'You are making this up, type 5 for help. Try Again'.colorize(:red)
       end
     end
   end
@@ -46,9 +46,9 @@ class NewsCli
     puts '3.) list general# lists general news'
     puts '4.) list science # lists science news'
     puts '5.) list all the commands'
+    puts '6.) exit'
   end
 end
 
 call_cli = NewsCli.new
-cal_cli = call_cli.call
-p cal_cli
+call_cli.call
