@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'rest-client'
 require 'byebug'
 
-RSpec.describe "Widget management", :type => :request do
+RSpec.describe "Different news categories", :type => :request do
   describe 'GET /news' do
 
     it 'will retrieve news articles' do
