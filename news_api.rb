@@ -4,29 +4,34 @@ require 'json'
 require 'colorize'
 
 class NewsApi
+  def news_url(category)
+    base_url = 'https://newsapi.org/v2/top-headlines?country=us'
+    base_url + '&category=' + category + '&apiKey=' + ENV['API_KEY']
+  end
+
   def headlines
-    link = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=' + ENV['API_KEY']
-    print_news(link)
+    headlines_link = news_url('')
+    print_news(headlines_link)
   end
 
   def entertainment_news
-    link = 'https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=' + ENV['API_KEY']
-    print_news(link)
+    entertainment_news_link = news_url('entertainment')
+    print_news(entertainment_news_link)
   end
 
   def business_news
-    link = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=' + ENV['API_KEY']
-    print_news(link)
+    business_news_link = news_url('business')
+    print_news(business_news_link)
   end
 
   def general_news
-    link = 'https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=' + ENV['API_KEY']
-    print_news(link)
+    general_news_link = news_url('general')
+    print_news(general_news_link)
   end
 
   def science_news
-    link = 'https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=' + ENV['API_KEY']
-    print_news(link)
+    science_news_link = news_url('science')
+    print_news(science_news_link)
   end
 
   def json_response(body)
