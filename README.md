@@ -41,7 +41,7 @@ https://www.cbsnews.com
  
  Clone the Repo in a folder of your choice
  
- $`git clone url`
+ $`git clone https://github.com/faithngetich/news-cli.git`
  
  Navigate to the root folder.
  
@@ -54,6 +54,7 @@ https://www.cbsnews.com
  
  ## Running the program
  Run the cli file
+ 
  $`ruby news_cli.rb` 
  
  Run $`1` for the top headlines caterogry
