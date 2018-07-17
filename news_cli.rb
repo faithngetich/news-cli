@@ -48,6 +48,7 @@ class NewsCli
     puts '3.) list general# lists general news'
     puts '4.) list science # lists science news'
     puts '5.) list all the commands'
+    puts 'Type the word exit to quit'
   end
 
   def print_news(last_five_articles)
