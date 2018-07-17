@@ -37,7 +37,28 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
-
+  config.before(:each) do
+    response_body = {
+      status: "ok",
+      totalResults: 1,
+      articles: [
+        {
+          source: {
+            id: "VERITAS",
+            name: "Phys.org"
+          },
+          author: "VERITAS",
+          title: "VERITAS",
+          description: "description",
+          url: "https://phys.org/news/2018-07-veritas-critical-piece-neutrino-discovery.html",
+          urlToImage: "https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/2018/veritassuppl.jpg",
+          publishedAt: "2018-07-12T15:00:30Z"
+        }
+      ]
+    }
+    stub_request(:get, /newsapi.org/).
+      to_return(body: JSON.generate(response_body), status: 200, headers: {})
+  end
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
   # have no way to turn it off -- the option exists only for backwards
   # compatibility in RSpec 3). It causes shared context metadata to be
