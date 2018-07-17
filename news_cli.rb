@@ -13,20 +13,22 @@ class NewsCli
       case user_input
       when '1'
         puts 'List of the last 5 headlines news: '.colorize(:green)
-        newsapi.headlines
+        print_news(newsapi.headlines)
       when '2'
         puts 'List of the last 5 entertainment news: '.colorize(:green)
-        newsapi.entertainment_news
+        print_news(newsapi.entertainment_news)
       when '3'
         puts 'List of the last 5 general news: '.colorize(:green)
-        newsapi.general_news
+        print_news(newsapi.general_news)
       when '4'
         puts 'List of the last 5 science news: '.colorize(:green)
-        newsapi.science_news
+        print_news(newsapi.science_news)
       when '5'
         command_helper
       when ''
         puts 'Please select a number'.colorize(:red)
+      when 'exit'
+        puts 'Goodbye'.colorize(:green)
       else
         puts 'You are making this up, type 5 for help. Try Again'.colorize(:red)
       end
@@ -47,6 +49,14 @@ class NewsCli
     puts '4.) list science # lists science news'
     puts '5.) list all the commands'
     puts '6.) exit'
+  end
+
+  def print_news(last_five_articles)
+    last_five_articles.each_with_index do |article, index|
+      puts ' ' *30 + "#{(index+1)}. #{article['title']}"
+      puts ' ' * 30 + "-" * 70
+      puts ' ' *30 + "#{article['url']}".colorize(:light_blue)
+    end
   end
 end
 

@@ -1,4 +1,4 @@
-require 'rest-client'
+require 'rest-client' 
 require 'byebug'
 require 'json'
 require 'colorize'
@@ -11,41 +11,35 @@ class NewsApi
 
   def headlines
     headlines_link = news_url('')
-    print_news(headlines_link)
+    headline = RestClient.get(headlines_link)
+    json_response(headline.body)["articles"].last(5)
   end
 
   def entertainment_news
     entertainment_news_link = news_url('entertainment')
-    print_news(entertainment_news_link)
+    entertainment_news = RestClient.get(entertainment_news_link)
+    json_response(entertainment_news.body)["articles"].last(5)
   end
 
   def business_news
     business_news_link = news_url('business')
-    print_news(business_news_link)
+    business = RestClient.get(business_news_link)
+    json_response(business.body)["articles"].last(5)
   end
 
   def general_news
     general_news_link = news_url('general')
-    print_news(general_news_link)
+    general = RestClient.get(general_news_link)
+    json_response(general.body)["articles"].last(5)
   end
 
   def science_news
     science_news_link = news_url('science')
-    print_news(science_news_link)
+    science_news = RestClient.get(science_news_link)
+    json_response(science_news.body)["articles"].last(5)
   end
 
   def json_response(body)
     JSON.parse(body)
-  end
-
-  def print_news(link)
-    headline = RestClient.get(link)
-    response = json_response(headline.body)
-    last_five_articles = response["articles"].last(5)
-    last_five_articles.each_with_index do |article, index|
-      puts ' ' *30 + "#{(index+1)}. #{article['title']}"
-      puts ' ' * 30 + "-" * 70
-      puts ' ' *30 + "#{article['url']}".colorize(:light_blue)
-    end
   end
 end
