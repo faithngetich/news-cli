@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/faithngetich/news-cli.svg?branch=master)](https://travis-ci.org/faithngetich/news-cli)
+[![Coverage Status](https://coveralls.io/repos/github/faithngetich/news-cli/badge.svg?branch=master)](https://coveralls.io/github/faithngetich/news-cli?branch=master)
 
 # News-cli
 
