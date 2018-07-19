@@ -53,9 +53,9 @@ class NewsCli
 
   def print_news(last_five_articles)
     last_five_articles.each_with_index do |article, index|
-      puts ' ' *30 + "#{(index+1)}. #{article['title']}"
+      puts ' ' * 30 + "#{(index+1)}. #{article['title']}"
       puts ' ' * 30 + "-" * 70
-      puts ' ' *30 + "#{article['url']}".colorize(:light_blue)
+      puts ' ' * 30 + "#{article['url']}".colorize(:light_blue)
     end
   end
 end
