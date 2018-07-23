@@ -13,17 +13,20 @@ class NewsCli
       case user_input
       when '1'
         puts 'List of the last 5 headlines news: '.colorize(:green)
-        print_news(newsapi.headlines)
+        print_news(newsapi.get_articles(''))
       when '2'
         puts 'List of the last 5 entertainment news: '.colorize(:green)
-        print_news(newsapi.entertainment_news)
+        print_news(newsapi.get_articles('entertainment'))
       when '3'
         puts 'List of the last 5 general news: '.colorize(:green)
-        print_news(newsapi.general_news)
+        print_news(newsapi.get_articles('general'))
       when '4'
         puts 'List of the last 5 science news: '.colorize(:green)
-        print_news(newsapi.science_news)
+        print_news(newsapi.get_articles('science'))
       when '5'
+        puts 'List of the last 5 business news: '.colorize(:green)
+        print_news(newsapi.get_articles('business'))
+      when '6'
         command_helper
       when ''
         puts 'Please select a number'.colorize(:red)
@@ -47,7 +50,8 @@ class NewsCli
     puts '2.) list entertainment # lists entertainment news'
     puts '3.) list general# lists general news'
     puts '4.) list science # lists science news'
-    puts '5.) list all the commands'
+    puts '5.) list business # lists business news'
+    puts '6.) list all the commands'
     puts 'Type the word exit to quit'
   end
 

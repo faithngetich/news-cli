@@ -2,28 +2,13 @@ require 'rest-client'
 require 'byebug'
 require 'json'
 require 'colorize'
-require './retrieve_news'
+require './news'
 
 class NewsApi
-  include RetrieveNews
+  include News
 
-  def headlines
-    get_last_5_articles('')
+  def get_articles(category)
+    get_last_5_articles(category)
   end
-
-  def entertainment_news
-    get_last_5_articles('entertainment')
-  end
-
-  def business_news
-    get_last_5_articles('business')
-  end
-
-  def general_news
-    get_last_5_articles('general')
-  end
-
-  def science_news
-    get_last_5_articles('science')
-  end
+  
 end
