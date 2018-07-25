@@ -1,7 +1,3 @@
-require 'rest-client' 
-require 'byebug'
-require 'json'
-require 'colorize'
 require './news'
 
 class NewsApi
